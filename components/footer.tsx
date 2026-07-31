@@ -11,6 +11,12 @@ export function Footer() {
           <p className="mt-2 max-w-xs text-sm text-cream-100/70">
             Small-batch coffee and bakery, made fresh every morning.
           </p>
+          <div className="mt-4">
+            <p className="font-mono text-xs font-bold uppercase tracking-ticket text-cream-50">Opening hours</p>
+            <p className="mt-1 font-mono text-xs uppercase tracking-ticket text-cream-100/50">
+              Mon–Fri 6am–8pm · Sat 7am–9pm
+            </p>
+          </div>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link href="/menu" className={`rounded-sm text-sm text-cream-100/70 transition-colors duration-fast ease-brew hover:text-cream-50 ${FOCUS_RING_CLASSES}`}>
