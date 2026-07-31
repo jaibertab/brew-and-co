@@ -73,7 +73,7 @@ export function ReservationDialog({
           <FormField id="reservation-party-size" name="partySize" label="Party size" type="number" min={1} max={12} defaultValue={2} required />
           <FormField id="reservation-date" name="date" label="Preferred date" type="date" min={todayIsoDate()} required />
           <FormField id="reservation-time" name="time" label="Preferred time" type="time" required />
-          <p className="font-mono text-xs uppercase tracking-ticket text-ink-faint">Open 7am–6pm daily</p>
+          <p className="font-mono text-xs uppercase tracking-ticket text-ink-faint">Mon–Fri 6am–8pm · Sat 7am–9pm</p>
           <div className="mt-2 flex justify-end gap-3">
             <Button type="button" variant="secondary" onClick={close}>
               Cancel
