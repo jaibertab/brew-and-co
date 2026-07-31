@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brew & Co. — Design System</title>
+<meta name="description" content="Living style guide: color, type, spacing, and component reference for the Brew & Co. design system." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-cream-50: #fbf6ef;
+    --color-cream-100: #f6e9d8;
+    --color-cream-200: #eedbc0;
+    --color-cream-300: #e0c49d;
+    --color-espresso-950: #241209;
+    --color-espresso-800: #3a2417;
+    --color-espresso-600: #6b4a38;
+    --color-espresso-400: #93705a;
+    --color-espresso-200: #d9c3ae;
+    --color-ember-500: #e2572b;
+    --color-ember-600: #c4441e;
+    --color-ember-700: #a3350f;
+    --color-gold-500: #c89a2c;
+    --color-gold-700: #8f6c17;
+    --color-pine-600: #2e6657;
+    --color-pine-700: #1f4a3f;
+    --color-berry-500: #c1557b;
+    --color-berry-600: #a8446a;
+
+    --font-display: "Fredoka", ui-rounded, sans-serif;
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Space Mono", ui-monospace, monospace;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-pill: 999px;
+
+    --shadow-soft: 0 8px 24px -8px rgb(36 18 9 / 0.18);
+    --shadow-lift: 0 16px 40px -12px rgb(36 18 9 / 0.28);
+    --shadow-button: 0 4px 12px -2px rgb(196 68 30 / 0.35);
+
+    --ease-brew: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* This page documents a fixed brand surface (cream/paper-first, per the
+     brand direction in style-guide.md) rather than a theme-switching UI,
+     so it intentionally does not invert for prefers-color-scheme — the
+     footer preview below relies on staying a fixed dark surface. */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--color-cream-100);
+    color: var(--color-espresso-950);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    transition: background 200ms var(--ease-brew), color 200ms var(--ease-brew);
+  }
+  img, svg { max-width: 100%; display: block; }
+
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 768px) { .wrap { padding: 0 4rem; } }
+
+  section { padding: 3.5rem 0; border-bottom: 1px solid var(--color-cream-300); }
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ember-600);
+    margin: 0 0 0.5rem;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-espresso-950);
+    margin: 0;
+  }
+  h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 0.5rem; }
+  .lede { font-size: 1.125rem; color: var(--color-espresso-600); max-width: 40rem; margin: 0.75rem 0 0; }
+
+  code { font-family: var(--font-mono); font-size: 0.85em; }
+
+  /* ---- hero ---- */
+  .hero {
+    padding-top: 4.5rem;
+    display: grid;
+    gap: 2rem;
+  }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.05; }
+  .hero .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-espresso-600);
+    background: var(--color-cream-50);
+    border: 1px solid var(--color-cream-300);
+    border-radius: var(--radius-pill);
+    padding: 0.4rem 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+  .steam { stroke: var(--color-espresso-950); opacity: 0.4; width: 5rem; height: 2.5rem; margin: 1.5rem 0; }
+
+  /* ---- buttons ---- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border-radius: var(--radius-pill);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-sans); font-weight: 600; font-size: 1rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background 150ms var(--ease-brew), color 150ms var(--ease-brew), border-color 150ms var(--ease-brew);
+  }
+  .btn-primary { background: var(--color-ember-600); color: var(--color-cream-50); box-shadow: var(--shadow-button); }
+  .btn-primary:hover { background: var(--color-ember-700); }
+  .btn-primary .chip { width: 1.5rem; height: 1.5rem; border-radius: 999px; background: rgb(255 255 255 / 0.2); display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+  .btn-secondary { background: transparent; color: var(--color-espresso-950); border-color: var(--color-cream-300); }
+  .btn-secondary:hover { background: var(--color-cream-200); }
+  .btn-ghost { background: transparent; color: var(--color-espresso-600); }
+  .btn-ghost:hover { color: var(--color-espresso-950); }
+  .btn:focus-visible { outline: 2px solid var(--color-ember-600); outline-offset: 2px; }
+
+  /* ---- swatches ---- */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .swatch { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-cream-300); background: var(--color-cream-50); }
+  .swatch-fill { height: 4.5rem; }
+  .swatch-meta { padding: 0.75rem 0.9rem; }
+  .swatch-name { font-weight: 600; font-size: 0.875rem; }
+  .swatch-hex { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-espresso-600); }
+  .swatch-note { font-size: 0.7rem; color: var(--color-espresso-400); margin-top: 0.25rem; }
+
+  /* ---- type specimen ---- */
+  .specimen-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 0.9rem 0; border-top: 1px solid var(--color-cream-200); }
+  .specimen-row:first-of-type { border-top: none; }
+  .specimen-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-espresso-400); width: 5rem; flex-shrink: 0; }
+  .specimen-sample.display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; }
+  .specimen-sample.body { font-family: var(--font-sans); }
+  .specimen-sample.mono { font-family: var(--font-mono); }
+
+  /* ---- token strip (radius/shadow) ---- */
+  .token-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+  .token-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+  .token-box { width: 100%; height: 5rem; background: var(--color-cream-50); border: 1px solid var(--color-cream-300); }
+  .token-caption { font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-espresso-600); text-align: center; }
+
+  /* ---- nav preview ---- */
+  .nav-preview { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; background: var(--color-cream-50); border: 1px solid var(--color-cream-300); border-radius: var(--radius-lg); padding: 1rem 1.5rem; flex-wrap: wrap; }
+  .nav-wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--color-espresso-600); text-decoration: none; letter-spacing: 0.02em; }
+  .nav-links a.active { color: var(--color-espresso-950); border-bottom: 2px solid var(--color-ember-600); padding-bottom: 0.2rem; }
+  .search-pill { display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-100); border: 1px solid var(--color-cream-300); border-radius: var(--radius-pill); padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--color-espresso-400); min-width: 10rem; }
+
+  /* ---- category badges ---- */
+  .badge-row { display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .badge { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .badge-circle { width: 3.5rem; height: 3.5rem; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: var(--shadow-soft); }
+  .badge-label { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-espresso-600); }
+  .tone-gold { background: var(--color-gold-500); color: var(--color-espresso-950); }
+  .tone-pine { background: var(--color-pine-600); color: var(--color-cream-50); }
+  .tone-berry { background: var(--color-berry-500); color: var(--color-cream-50); }
+  .tone-ember { background: var(--color-ember-500); color: var(--color-cream-50); }
+
+  /* ---- product cards ---- */
+  .card-row { display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .product-card { width: 11rem; text-align: center; background: var(--color-cream-50); border-radius: var(--radius-md); border-bottom: 2px dashed rgb(36 18 9 / 0.15); padding: 1.25rem 1rem; }
+  .product-photo { width: 5rem; height: 5rem; border-radius: 999px; margin: 0 auto 0.75rem; background: var(--color-cream-200); box-shadow: var(--shadow-soft); display: flex; align-items: center; justify-content: center; font-size: 1.75rem; }
+  .product-name { font-weight: 600; font-size: 0.95rem; }
+  .product-price { font-family: var(--font-mono); font-weight: 700; font-size: 0.85rem; color: var(--color-ember-600); margin-top: 0.25rem; }
+
+  /* ---- tags ---- */
+  .tag-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .tag { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; background: var(--color-cream-200); color: var(--color-espresso-600); border-radius: var(--radius-sm); padding: 0.35rem 0.6rem; }
+  .tag.sold-out { background: rgb(36 18 9 / 0.08); color: var(--color-espresso-400); }
+
+  /* ---- footer preview ---- */
+  .footer-preview { background: var(--color-espresso-950); color: var(--color-cream-100); border-radius: var(--radius-lg); padding: 2.5rem 2rem; margin-top: 1.5rem; }
+  .footer-preview .nav-wordmark { color: var(--color-cream-50); }
+  .footer-links { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+  .footer-links span { font-size: 0.85rem; color: rgb(246 233 216 / 0.7); }
+  .footer-fine { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; color: rgb(246 233 216 / 0.5); margin-top: 1.5rem; text-transform: uppercase; }
+
+  footer.page-footer { text-align: center; padding: 3rem 0; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-espresso-400); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <section class="hero">
+      <div>
+        <span class="tag">Order #042 · Brewed fresh</span>
+        <h1>Design tokens, poured&nbsp;to&nbsp;order.</h1>
+        <p class="lede">The visual system behind Brew &amp; Co. — warm cream surfaces, a hand-pulled display face, and prices that read like they came off the till. Built for Next.js 16 + Tailwind CSS v4.</p>
+        <svg class="steam" viewBox="0 0 120 40" fill="none" aria-hidden="true">
+          <path d="M4 36c10-6 10-14 0-20s-10-14 0-20 20 4 20 4" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="hero-actions">
+          <button class="btn btn-primary">Add to order <span class="chip">▶</span></button>
+          <button class="btn btn-secondary">See the menu</button>
+          <button class="btn btn-ghost">Learn more</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Color</p>
+      <h2>Paper, ink, and one accent that talks.</h2>
+      <p class="lede">Cream surfaces and espresso ink carry the page. Ember is the only color used for primary actions. Gold, pine, and berry identify menu categories — never actions.</p>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-cream-50)"></div><div class="swatch-meta"><div class="swatch-name">Paper</div><div class="swatch-hex">cream-50 · #FBF6EF</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-cream-100)"></div><div class="swatch-meta"><div class="swatch-name">Latte (bg)</div><div class="swatch-hex">cream-100 · #F6E9D8</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-cream-300)"></div><div class="swatch-meta"><div class="swatch-name">Cream border</div><div class="swatch-hex">cream-300 · #E0C49D</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-espresso-950)"></div><div class="swatch-meta"><div class="swatch-name">Espresso (ink)</div><div class="swatch-hex">espresso-950 · #241209</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-espresso-600)"></div><div class="swatch-meta"><div class="swatch-name">Body ink</div><div class="swatch-hex">espresso-600 · #6B4A38</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-ember-500)"></div><div class="swatch-meta"><div class="swatch-name">Ember (decorative)</div><div class="swatch-hex">ember-500 · #E2572B</div><div class="swatch-note">3.7:1 on cream — large text/icons only</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-ember-600)"></div><div class="swatch-meta"><div class="swatch-name">Ember (interactive)</div><div class="swatch-hex">ember-600 · #C4441E</div><div class="swatch-note">5.0:1 on white — buttons, links</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-gold-500)"></div><div class="swatch-meta"><div class="swatch-name">Toasted Gold</div><div class="swatch-hex">gold-500 · #C89A2C</div><div class="swatch-note">Dark text/icon only, 2.6:1 w/ white</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-pine-600)"></div><div class="swatch-meta"><div class="swatch-name">Pine</div><div class="swatch-hex">pine-600 · #2E6657</div><div class="swatch-note">6.7:1 — white text safe</div></div></div>
+        <div class="swatch"><div class="swatch-fill" style="background:var(--color-berry-500)"></div><div class="swatch-meta"><div class="swatch-name">Berry</div><div class="swatch-hex">berry-500 · #C1557B</div><div class="swatch-note">Icon-only; use berry-600 for text</div></div></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Type</p>
+      <h2>Fredoka leads. Jakarta reads. Space Mono itemizes.</h2>
+      <div style="margin-top:1.5rem">
+        <div class="specimen-row"><span class="specimen-label">display / 4rem</span><span class="specimen-sample display" style="font-size:2.5rem">When life gives you lemons</span></div>
+        <div class="specimen-row"><span class="specimen-label">display / 2.5rem</span><span class="specimen-sample display" style="font-size:1.875rem">Today's brew list</span></div>
+        <div class="specimen-row"><span class="specimen-label">body / 1.125rem</span><span class="specimen-sample body" style="font-size:1.125rem">Shake up your taste buds with a chocolate delight.</span></div>
+        <div class="specimen-row"><span class="specimen-label">body / 1rem</span><span class="specimen-sample body">Pure cocoa goodness in every sip, brewed fresh every morning.</span></div>
+        <div class="specimen-row"><span class="specimen-label">mono / ticket</span><span class="specimen-sample mono" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--color-ember-600)">Order #042 · Today's brew</span></div>
+        <div class="specimen-row"><span class="specimen-label">mono / price</span><span class="specimen-sample mono" style="font-weight:700;color:var(--color-ember-600)">$30.00</span></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Radius &amp; elevation</p>
+      <h2>Pill-first, ink-tinted shadows.</h2>
+      <div class="token-row">
+        <div class="token-card"><div class="token-box" style="border-radius:var(--radius-sm)"></div><span class="token-caption">radius-sm · 8px</span></div>
+        <div class="token-card"><div class="token-box" style="border-radius:var(--radius-md)"></div><span class="token-caption">radius-md · 16px</span></div>
+        <div class="token-card"><div class="token-box" style="border-radius:var(--radius-lg)"></div><span class="token-caption">radius-lg · 24px</span></div>
+        <div class="token-card"><div class="token-box" style="border-radius:var(--radius-pill)"></div><span class="token-caption">radius-pill · 999px</span></div>
+        <div class="token-card"><div class="token-box" style="box-shadow:var(--shadow-soft)"></div><span class="token-caption">shadow-soft</span></div>
+        <div class="token-card"><div class="token-box" style="box-shadow:var(--shadow-lift)"></div><span class="token-caption">shadow-lift</span></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Components</p>
+      <h2>Nav &amp; search</h2>
+      <div class="nav-preview" style="margin-top:1.5rem">
+        <span class="nav-wordmark">Brew &amp; Co.</span>
+        <nav class="nav-links">
+          <a href="#" class="active">Home</a>
+          <a href="#">Menu</a>
+          <a href="#">Vendor</a>
+          <a href="#">Blog</a>
+        </nav>
+        <span class="search-pill">🔍 Search the menu</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Category badges</h2>
+      <p class="lede">One tone per menu section — identifies, doesn't compete for the primary click.</p>
+      <div class="badge-row">
+        <div class="badge"><span class="badge-circle tone-gold">☕</span><span class="badge-label">Coffee</span></div>
+        <div class="badge"><span class="badge-circle tone-pine">🥤</span><span class="badge-label">Drinks</span></div>
+        <div class="badge"><span class="badge-circle tone-gold">🍵</span><span class="badge-label">Tea</span></div>
+        <div class="badge"><span class="badge-circle tone-berry">🥐</span><span class="badge-label">Bakery</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Product cards</h2>
+      <p class="lede">The receipt-tear edge and monospace price are the signature motif — see <code>style-guide.md</code>.</p>
+      <div class="card-row">
+        <div class="product-card"><div class="product-photo">🍫</div><div class="product-name">Nutella Mudslide</div><div class="product-price">$30.00</div></div>
+        <div class="product-card"><div class="product-photo">☕</div><div class="product-name">Caramel Frappuccino</div><div class="product-price">$40.00</div></div>
+        <div class="product-card"><div class="product-photo">🍩</div><div class="product-name">Hot Chocolate</div><div class="product-price">$35.00</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tags</h2>
+      <div class="tag-row">
+        <span class="tag">Order #042</span>
+        <span class="tag">Brewed fresh</span>
+        <span class="tag sold-out">Sold out</span>
+      </div>
+    </section>
+
+    <section style="border-bottom:none">
+      <h2>Footer (dark surface)</h2>
+      <p class="lede">The one place the system inverts — closing the register at the end of the page.</p>
+      <div class="footer-preview">
+        <span class="nav-wordmark">Brew &amp; Co.</span>
+        <div class="footer-links">
+          <span>Menu</span><span>Vendor</span><span>Visit us</span><span>Contact</span>
+        </div>
+        <div class="footer-fine">© 2026 Brew &amp; Co. · Order fresh, every day</div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="page-footer">tokens.css · tokens.json · style-guide.md · components.md — docs/design</footer>
+</body>
+</html>
