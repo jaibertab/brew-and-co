@@ -1,0 +1,21 @@
+category,name,description,price,badge,image
+espresso,House Espresso,"A double shot of our house blend, pulled fresh to order.",3.25,popular,/images/menu/house-espresso.webp
+espresso,Americano,"Espresso stretched with hot water for a lighter, larger cup.",3.75,,/images/menu/americano.webp
+espresso,Cortado,"Equal parts espresso and steamed milk, no foam.",4.00,,/images/menu/cortado.webp
+espresso,Cappuccino,"Espresso topped with a thick layer of steamed milk foam.",4.50,,/images/menu/cappuccino.webp
+espresso,Caramel Macchiato,"Espresso marked with vanilla, steamed milk, and a caramel drizzle.",5.25,house favorite,/images/menu/caramel-macchiato.webp
+drinks,Drip Coffee,"Our house blend, brewed fresh all day.",2.75,house favorite,/images/menu/drip-coffee.webp
+drinks,Hot Chocolate,"Real cocoa, steamed milk, and a dusting of cinnamon on top.",4.50,popular,/images/menu/hot-chocolate.webp
+drinks,Chai Latte,"Spiced black tea steamed with milk and a touch of honey.",5.00,,/images/menu/chai-latte.webp
+drinks,Matcha Latte,"Stone-ground green tea whisked with steamed milk.",5.25,,/images/menu/matcha-latte.webp
+pastries,Banana Bread,"Moist and made from scratch with ripe bananas and walnuts.",3.50,,/images/menu/banana-bread.webp
+pastries,Blueberry Muffin,"Loaded with blueberries and topped with a crumb streusel.",3.75,,/images/menu/blueberry-muffin.webp
+pastries,Almond Croissant,"Buttery croissant filled with almond cream, baked fresh daily.",4.25,house favorite,/images/menu/almond-croissant.webp
+pastries,Cinnamon Roll,"Hand-rolled and finished with cream cheese icing.",4.50,popular,/images/menu/cinnamon-roll.webp
+sandwiches,Avocado Toast,"Smashed avocado, chili flake, and lemon on toasted multigrain.",7.75,popular,/images/menu/avocado-toast.webp
+sandwiches,Turkey & Swiss Panini,"Roasted turkey, swiss, and pesto mayo, pressed on sourdough.",8.50,,/images/menu/turkey-swiss-panini.webp
+cold drinks,Cold Brew,"Slow-steeped for 18 hours, smooth and naturally sweet.",4.25,popular,/images/menu/cold-brew.webp
+cold drinks,Iced Latte,"Espresso over ice with cold milk.",4.75,,/images/menu/iced-latte.webp
+cold drinks,Caramel Frappuccino,"Blended cold coffee, caramel, and cream, topped with whipped cream.",6.50,popular,/images/menu/caramel-frappuccino.webp
+cold drinks,Nutella Mudslide,"Blended cold brew, chocolate, and hazelnut, finished with a drizzle.",6.75,house favorite,/images/menu/nutella-mudslide.webp
+cold drinks,Strawberry Matcha Refresher,"Iced matcha layered over strawberry puree.",5.50,,/images/menu/strawberry-matcha-refresher.webp
